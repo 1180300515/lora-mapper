@@ -40,7 +40,9 @@ type Tcpconfig struct {
 func NewClient(config Tcpconfig) (client *Lora_tcpclient) {
 	addr := config.IP + ":" + config.Port
 	fmt.Println("the addr is ", addr)
-	client.TCPclient = NewTCPClientHandler(addr)
+	client = &Lora_tcpclient{}
+	server := NewTCPClientHandler(addr)
+	client.TCPclient = server
 	client.TCPclient.ConcentratorID = config.ConcentratorID
 	client.TCPclient.ConverterID = config.ConverterID
 	client.TCPclient.SlaveId = byte(config.SlaveID)

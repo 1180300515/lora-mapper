@@ -1,0 +1,7 @@
+Log file created at: 2022/01/16 20:59:27
+Running on machine: wtq-S1
+Binary: Built with gc go1.17 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0116 20:59:27.173861  114505 device.go:43] Visit readonly register: 1
+I0116 20:59:27.173971  114505 device.go:43] Visit readonly register: 0
+I0116 20:59:27.173979  114505 device.go:183] Subscribe topic: $hw/events/device/test1/twin/update/delta
