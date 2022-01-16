@@ -71,7 +71,9 @@ func TransferData(isRegisterSwap bool, isSwap bool,
 	if isSwap {
 		SwitchByte(value)
 	}
-
+	if len(value) == 0 {
+		return "", nil
+	}
 	switch dataType {
 	case "int":
 		switch len(value) {
