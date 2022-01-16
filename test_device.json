@@ -1,0 +1,109 @@
+{
+	"deviceInstances": [
+		{
+			"id": "test1",
+			"name": "test1",
+			"protocol": "lora-tcp",
+			"model": "test-model",
+			"twins": [
+				{
+					"propertyName": "temperature",
+					"desired": {
+						"metadata": {
+							"type": "float"
+						}
+					},
+					"reported": {
+						"metadata": {
+							"type": "float"
+						}
+					}
+				},
+				{
+					"propertyName": "humidity",
+					"desired": {
+						"metadata": {
+							"type": "float"
+						}
+					},
+					"reported": {
+						"metadata": {
+							"type": "float"
+						}
+					}
+				}
+			],
+			"data": {},
+			"propertyVisitors": [
+				{
+					"name": "temperature",
+					"propertyName": "temperature",
+					"modelName": "test-model",
+					"protocol": "lora-tcp",
+					"collectCycle": 5000000000,
+					"visitorConfig": {
+						"register": "HoldingRegister",
+						"offset": 1,
+						"limit": 1,
+						"scale": 0.1,
+						"isSwap": false,
+						"isRegisterSwap": false
+					}
+				},
+				{
+					"name": "humidity",
+					"propertyName": "humidity",
+					"modelName": "test-model",
+					"protocol": "lora-tcp",
+					"collectCycle": 5000000000,
+					"visitorConfig": {
+						"concentratorID": 1,
+						"converterID": 1,
+						"slaveID": 1,
+						"register": "HoldingRegister",
+						"offset": 0,
+						"limit": 1,
+						"scale": 0.1,
+						"isSwap": false,
+						"isRegisterSwap": false
+					}
+				}
+			]
+		}
+	],
+	"deviceModels": [
+		{
+			"name": "test-model",
+			"properties": [
+				{
+					"name": "temperature",
+					"dataType": "float",
+					"description": "temperature in degree celsius",
+					"accessMode": "ReadOnly",
+					"unit": "degree celsius",
+					"defaultValue": 0
+				},
+				{
+					"name": "humidity",
+					"dataType": "float",
+					"description": "humidity",
+					"accessMode": "ReadOnly",
+					"defaultValue": 0
+				}
+			]
+		}
+	],
+	"protocols": [
+		{
+			"name": "lora-tcp",
+			"protocol": "lora-tcp",
+			"protocolCommonConfig": {
+				"concentratorID": 1,
+				"converterID": 1,
+				"slaveID": 1,
+				"ip": "127.0.0.1",
+				"port": "9999"
+			}
+		}
+	]
+}

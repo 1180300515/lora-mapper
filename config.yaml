@@ -1,0 +1,6 @@
+mqtt:
+  server: tcp://127.0.0.1:1883
+  username: ""
+  password: ""
+  certification: ""
+configmap: /home/wtq/go/src/github.com/kubeedge/mappers-go/mappers/lora/test_device.json
